@@ -1,0 +1,439 @@
+/** Reset Simples podes colocar no Boot ou trocar */
+
+
+.container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1004;
+    display: flex;
+    flex-direction: column;
+    transition: all .32s cubic-bezier(0, 0, 0, 1);
+    background: linear-gradient(0deg, #009aff 0%, #1966ff 100%);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .12), 0 8px 32px rgba(0, 0, 0, .08);
+}
+
+.menu_header {
+    overflow: hidden;
+    text-align: center;
+    padding: calc(3 * 3.5px) 0;
+}
+
+.menu_header img {
+    height: 45px;
+}
+
+.menu_nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: static;
+    overflow-y: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto;
+    flex: 1;
+    padding-bottom: 30px;
+}
+
+.menu_nav::-webkit-scrollbar {
+    display: none;
+}
+
+.menu_nav__item {
+    position: static;
+    margin-bottom: 1px;
+}
+
+.menu_nav__item>a {
+    padding: 10px 18px 10px 16px;
+    display: flex;
+    align-items: center;
+    transition: all .24s ease;
+}
+
+.menu_nav__item>a.active {
+    background-color: hsl(0deg 0% 0% / 6%);
+}
+
+.menu_nav__item>a svg {
+    line-height: 0;
+    transition: all .24s ease;
+}
+
+.svg-icon-outline-i,
+.svg-icon-outline-l,
+.svg-icon-outline-p,
+.svg-icon-outline-s {
+    fill: none;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.svg-icon-outline-s {
+    stroke: #fff;
+}
+
+.svg-icon-outline-i {
+    stroke: #1062fe
+}
+
+.svg-icon-prime-l {
+    fill: #dee0f3;
+}
+
+.svg-icon-prime {
+    fill: #fff;
+}
+
+.svg-icon-i {
+    stroke: #1062fe
+}
+
+.item_title {
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+    transition: all .24s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: hsla(0, 0%, 100%, 80%);
+    padding: 10px 0 0;
+    font-size: .891rem;
+}
+
+.menu_nav__item a.active .item_title,
+.menu_nav__item a:hover .item_title {
+    color: #fff;
+}
+
+.menu-shadow {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    transition: all 0.3s ease-in-out 0s;
+}
+.menu-shadow.open{
+    display: block;
+}
+.submenu {
+    position: fixed;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    visibility: visible;
+    max-width: 280px;
+    width: 100%;
+    top: 0px;
+    left: -280px;
+    z-index: 1000;
+    transition: left 0.3s ease 0s;
+    overflow: hidden auto;
+    background-color: white;
+    height: 100%;
+}
+.submenu.open{
+    left: 110px;
+}
+.submenu .open{
+    display: block;
+}
+.submenu-items {
+    display: none;
+    position: relative;
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 40px;
+    list-style-type: none;
+    padding: 24px 15px;
+    width: 100%;
+}
+
+.submenu-item:nth-of-type(n+2):hover {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.submenu-item.title {
+    margin: 0px;
+    padding: 0px 16px 16px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 16px;
+    cursor: default;
+}
+.submenu-item a {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+    padding: 0px 16px;
+}
+
+.menu-avatar{
+    background: #545454;
+    transition: all .2s ease-in-out;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 0.25rem 1rem 0.25rem 0.25rem;
+    cursor: pointer;
+    color: #868686;
+}
+
+.icon-wrapper {
+    display: inline-flex!important;
+    align-items: center;
+}
+.menu-avatar img {
+    background: #fff;
+    margin: 1px;
+    max-height: 35px;
+    margin-right: 0.25rem!important;
+    border-radius: 50%!important;
+}
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    color: #fff;
+}
+.icon.icon-angle-down {
+    margin-left: 0.5rem;
+    margin-right: 0!important;
+}
+
+
+
+
+.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    min-width: 280px;
+    max-width: 400px;
+    padding: 15px 20px;
+    margin: 2px 0 0;
+    font-size: 13px;
+    right: -10px;
+    top: 53px;
+    text-align: left;
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    background-clip: padding-box;
+}
+.dropdown-menu::before {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background: #fff;
+    position: absolute;
+    top: -8px;
+    right: 27px;
+    transform: rotate(45deg);
+    border-top: 1px solid rgba(0,0,0,0.15);
+    border-left: 1px solid rgba(0,0,0,0.15);
+}
+.dropdown-menu--title:first-of-type{
+    font-weight: 600;
+}
+.dropdown-menu--title{
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: 300;
+}
+.block-divisor, .dropdown-group{
+    display: block;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+}
+
+.dropdown-group:last-of-type{
+    border-bottom: none;
+}
+.center{
+    text-align: center;
+}
+
+
+.dropdown-menu__icon {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    padding: 10px;
+    background: #E5E6EB;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+
+.dropdown-link--item svg {
+    height: 16px;
+    position: relative;
+    top: 3px;
+}
+
+.dropdown-link--item {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    text-decoration: none !important;
+    padding: 7px;
+    font-weight: 300;
+}
+.dropdown-link--item:hover{
+    background: #fafafa;
+    color: #1577eb;
+}
+.dropdown-link--item:hover svg{
+    fill: #1577eb;
+}
+.dropdown-menu.open {
+    display: block;
+}
+
+
+.main_content {
+    display: flex;
+    flex-direction: column;
+    transition: all .32s cubic-bezier(0, 0, 0, 1);
+}
+
+.main_header {
+    padding: 12px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #e9eaec;
+}
+
+.menu_top__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+@media(min-width:200px) {
+    .container {
+        padding: 0 15px;
+    }
+    .main_content {
+        margin-left: 0;
+        transition: transform .24s ease;
+    }
+    .menu {
+        left: -100%;
+        width: 270px;
+    }
+    .main_content.open {
+        transform: translateX(270px);
+    }
+    .menu.open {
+        left: 0;
+    }
+   
+    .menu_nav__item>a:hover {
+        padding-left: 30px;
+    }
+    .menu_top__nav .icon_menu {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+    .menu_top__nav .icon_menu.open {
+        display: flex;
+    }
+    .menu_nav__item>a svg {
+        width: 28px;
+        height: 28px;
+        margin-right: 15px;
+    }
+    
+    .menu_header img {
+        border-radius: 50%;
+    }
+    .menu_nav__item>a i {
+        margin-right: 10px;
+    }
+    
+}
+
+@media(min-width:920px) {
+    .menu {
+        left: 0%;
+        width: 110px;
+    }
+   
+    .menu_nav__item>a {
+        flex-direction: column;
+        padding: 10px 15px 10px 13px;
+    }
+    .menu_nav__item>a i {
+        font-size: 3rem;
+        margin-right: 0px;
+    }
+    .container {
+        padding: 0 15px;
+    }
+    .main_content {
+        margin-left: 110px;
+    }
+    .menu_top__nav > li:first-of-type {
+        display: none;
+    }
+    .menu_top__nav {
+        justify-content: flex-end;
+    }
+   
+    .menu_nav__item>a svg {
+        width: 30px;
+        height: 30px;
+        margin-right: 0;
+    }
+    .menu_nav__item>a:hover {
+        padding-left: 15px;
+    }
+    .menu_nav__item>a:hover svg {
+        transform: translate3d(0, -8px, 0);
+    }
+}
+
+
+@media (max-width:920px)  {
+    .menu.open.xopen {
+        left: -100%;
+    }
+    .menu-shadow.open{
+        display: none;
+    }
+    .submenu{
+        top: 70px;
+      
+        border-right: 1px solid #cecece;
+    }
+    .submenu.open{
+        left: 0;
+    }
+}
